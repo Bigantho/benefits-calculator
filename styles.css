@@ -149,6 +149,8 @@ footer { padding: 60px 0 24px; color: white; background: var(--ink); }
 .footer-inner { display: grid; grid-template-columns: 1.5fr 1fr; gap: 50px; }
 .footer-inner p { color: #9aaba3; }
 .footer-inner > div:last-child { display: flex; flex-direction: column; gap: 8px; }
+.footer-inner > div:last-child p { margin: 0; }
+.footer-inner > div:last-child ul { display: grid; gap: 6px; margin: 0; padding-left: 18px; }
 .footer-inner a { text-decoration: none; font-size: 13px; }
 .footer-bottom { display: flex; justify-content: space-between; margin-top: 55px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.12); color: #82938b; font-size: 11px; }
 
