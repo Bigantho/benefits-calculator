@@ -18,5 +18,5 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 65002
           script: |
-            cd public_html
+            cd  ${{ secrets.HOSTINGER_PATH }}
             git pull origin main
