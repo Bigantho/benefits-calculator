@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="es-SV">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calculadora de prestaciones laborales en El Salvador</title>
+  <meta name="description"
+    content="Calcula aguinaldo, indemnización por despido, prestación por renuncia voluntaria y salario quincenal en El Salvador.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#f6f8f5">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_SV">
+  <meta property="og:title" content="Calculadora laboral de El Salvador">
+  <meta property="og:description"
+    content="Estimaciones claras de aguinaldo, indemnización, renuncia voluntaria y quincena.">
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Calculadora de prestaciones laborales en El Salvador",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Web",
+    "inLanguage": "es-SV",
+    "description": "Calculadora orientativa de aguinaldo, indemnización, renuncia voluntaria y salario quincenal en El Salvador.",
+    "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type":"Question","name":"¿El resultado es oficial?","acceptedAnswer":{"@type":"Answer","text":"No. Es una estimación educativa basada en los datos ingresados y no sustituye un cálculo oficial ni asesoría legal."}},
+      {"@type":"Question","name":"¿Se guardan mis datos?","acceptedAnswer":{"@type":"Answer","text":"No. Los cálculos se realizan localmente en el navegador."}},
+      {"@type":"Question","name":"¿Por qué se pueden cambiar los topes y porcentajes?","acceptedAnswer":{"@type":"Answer","text":"Porque el salario mínimo, las bases cotizables y otras reglas pueden cambiar con el tiempo."}}
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <noscript>
+    <div class="noscript">Necesitas activar JavaScript para realizar los cálculos.</div>
+  </noscript>
+  <a class="skip-link" href="#calculadora">Ir a la calculadora</a>
+
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="#inicio" aria-label="Calculadora Laboral SV, inicio">
+        <span class="brand-mark" aria-hidden="true">SV</span>
+        <span>Calculadora Laboral</span>
+      </a>
+      <nav aria-label="Navegación principal">
+        <a href="#calculadora">Calculadoras</a>
+        <a href="#metodologia">Metodología</a>
+        <a href="#preguntas">Preguntas</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <section class="hero shell" aria-labelledby="hero-title">
+      <div class="eyebrow"><span></span> Herramienta gratuita · El Salvador</div>
+      <h1 id="hero-title">Tus prestaciones laborales,<br><em>explicadas con números.</em></h1>
+      <p class="hero-copy">Obtén una estimación inmediata y revisa cada paso del cálculo. Tú controlas el salario, las
+        fechas, los topes y las deducciones.</p>
+      <div class="hero-actions">
+        <a class="button primary" href="#calculadora">Empezar a calcular <span aria-hidden="true">→</span></a>
+        <a class="button secondary" href="#metodologia">Cómo funciona la plataforma</a>
+      </div>
+      <div class="trust-row" aria-label="Características">
+        <span>✓ Sin registro</span><span>✓ Datos privados</span><span>✓ Resultado instantáneo</span>
+      </div>
+    </section>
+
+    <section id="calculadora" class="calculator-section">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="kicker">Selecciona un cálculo</p>
+            <h2>¿Qué deseas estimar?</h2>
+          </div>
+          <p>Los cálculos se realizan en tu dispositivo. No guardamos ni enviamos los datos ingresados.</p>
+        </div>
+
+        <div class="tabs" role="tablist" aria-label="Tipo de prestación">
+          <button class="tab active" role="tab" aria-selected="true" aria-controls="panel-aguinaldo" id="tab-aguinaldo"
+            data-tab="aguinaldo"><span class="tab-number">01</span><span><b>Aguinaldo</b><small>Pago
+                anual</small></span></button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="panel-despido" id="tab-despido"
+            data-tab="despido"><span class="tab-number">02</span><span><b>Indemnización</b><small>Despido
+                injustificado</small></span></button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="panel-renuncia" id="tab-renuncia"
+            data-tab="renuncia"><span class="tab-number">03</span><span><b>Renuncia voluntaria</b><small>Prestación
+                económica</small></span></button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="panel-quincena" id="tab-quincena"
+            data-tab="quincena"><span class="tab-number">04</span><span><b>Salario quincenal</b><small>Quincena y
+                descuentos</small></span></button>
+        </div>
+
+        <div class="calculator-card">
+          <section class="tab-panel active" id="panel-aguinaldo" role="tabpanel" aria-labelledby="tab-aguinaldo">
+            <div class="form-side">
+              <div class="panel-title"><span class="icon-box" aria-hidden="true">✦</span>
+                <div>
+                  <p>Aguinaldo</p>
+                  <h3>Datos del trabajador</h3>
+                </div>
+              </div>
+              <form id="form-aguinaldo" class="calc-form" novalidate>
+                <label>Salario mensual base <span class="hint">USD</span><span class="money-input"><span>$</span><input
+                      type="number" id="ag-salary" min="0" step="0.01" value="600" required></span></label>
+                <div class="field-grid">
+                  <label>Fecha de ingreso <span class="hint">DD/MM/AAAA</span><span class="date-control"><input
+                        class="date-input" type="text" id="ag-start" value="15/01/2024" placeholder="DD/MM/AAAA"
+                        inputmode="numeric" maxlength="10" autocomplete="off" data-date required><span
+                        class="date-picker-button" aria-hidden="true"></span><input class="date-picker-native"
+                        type="date" data-date-target="ag-start"
+                        aria-label="Abrir calendario para fecha de ingreso"></span></label>
+                  <label>Fecha del cálculo <span class="hint">DD/MM/AAAA</span><span class="date-control"><input
+                        class="date-input" type="text" id="ag-end" placeholder="DD/MM/AAAA" inputmode="numeric"
+                        maxlength="10" autocomplete="off" data-date required><span class="date-picker-button"
+                        aria-hidden="true"></span><input class="date-picker-native" type="date"
+                        data-date-target="ag-end" aria-label="Abrir calendario para fecha del cálculo"></span></label>
+                </div>
+                <label class="check"><input type="checkbox" id="ag-variable"><span><b>Mi salario es
+                      variable</b><small>Usar un salario diario promedio en lugar del salario
+                      mensual.</small></span></label>
+                <label id="ag-variable-wrap" class="conditional">Salario diario promedio <span
+                    class="hint">USD</span><span class="money-input"><span>$</span><input type="number" id="ag-daily"
+                      min="0" step="0.01" value="20"></span></label>
+                <details>
+                  <summary>Ajustes del período proporcional</summary>
+                  <div class="details-body">
+                    <label class="check"><input type="checkbox" id="ag-prorate-auto" checked><span><b>Aplicar la regla
+                          automática</b><small>Con menos de un año calcula la parte proporcional; con un año o más
+                          calcula el aguinaldo completo.</small></span></label>
+                    <label id="ag-days-wrap" class="conditional">Días computables<input type="number" id="ag-days"
+                        min="0" max="365" value="365"></label>
+                  </div>
+                </details>
+              </form>
+            </div>
+            <aside class="result-side" aria-live="polite">
+              <p class="result-label">Aguinaldo estimado</p><output class="result-amount" id="ag-result">$0.00</output>
+              <p class="result-caption" id="ag-caption"></p>
+              <div class="breakdown" id="ag-breakdown"></div><button type="button" class="legal-button"
+                data-legal="aguinaldo"><span aria-hidden="true">§</span> Ver respaldo legal</button>
+              <p class="legal-note">Base orientativa: arts. 196–202 del Código de Trabajo.</p>
+            </aside>
+          </section>
+
+          <section class="tab-panel" id="panel-despido" role="tabpanel" aria-labelledby="tab-despido" hidden>
+            <div class="form-side">
+              <div class="panel-title"><span class="icon-box" aria-hidden="true">↗</span>
+                <div>
+                  <p>Indemnización</p>
+                  <h3>Datos del despido</h3>
+                </div>
+              </div>
+              <form id="form-despido" class="calc-form" novalidate>
+                <label>Salario mensual base <span class="hint">USD</span><span class="money-input"><span>$</span><input
+                      type="number" id="de-salary" min="0" step="0.01" value="600" required></span></label>
+                <div class="field-grid"><label>Fecha de ingreso <span class="hint">DD/MM/AAAA</span><span
+                      class="date-control"><input class="date-input" type="text" id="de-start" value="15/01/2022"
+                        placeholder="DD/MM/AAAA" inputmode="numeric" maxlength="10" autocomplete="off" data-date
+                        required><span class="date-picker-button" aria-hidden="true"></span><input
+                        class="date-picker-native" type="date" data-date-target="de-start"
+                        aria-label="Abrir calendario para fecha de ingreso"></span></label><label>Fecha de despido <span
+                      class="hint">DD/MM/AAAA</span><span class="date-control"><input class="date-input" type="text"
+                        id="de-end" placeholder="DD/MM/AAAA" inputmode="numeric" maxlength="10" autocomplete="off"
+                        data-date required><span class="date-picker-button" aria-hidden="true"></span><input
+                        class="date-picker-native" type="date" data-date-target="de-end"
+                        aria-label="Abrir calendario para fecha de despido"></span></label></div>
+                <div class="field-grid fixed-values"><label>Salario mínimo mensual <span class="hint">Valor
+                      fijo</span><span class="money-input"><span>$</span><input type="number" id="de-minimum"
+                        value="408.80" readonly aria-readonly="true"></span></label><label>Salario mínimo diario <span
+                      class="hint">Valor fijo</span><span class="money-input"><span>$</span><input type="number"
+                        id="de-minimum-daily" value="13.44" readonly aria-readonly="true"></span></label></div>
+                <details>
+                  <summary>Ajustes legales</summary>
+                  <div class="details-body"><label>Multiplicador máximo de salario diario<input type="number"
+                        id="de-cap-mult" min="0" step="0.1" value="4"></label><label>Mínimo de días de
+                      indemnización<input type="number" id="de-min-days" min="0" step="1" value="15"></label><label
+                      class="check"><input type="checkbox" id="de-apply-cap" checked><span><b>Aplicar tope
+                          legal</b><small>Limita la base diaria al múltiplo indicado del salario
+                          mínimo.</small></span></label></div>
+                </details>
+              </form>
+            </div>
+            <aside class="result-side" aria-live="polite">
+              <p class="result-label">Indemnización estimada</p><output class="result-amount"
+                id="de-result">$0.00</output>
+              <p class="result-caption" id="de-caption"></p>
+              <div class="breakdown" id="de-breakdown"></div><button type="button" class="legal-button"
+                data-legal="despido"><span aria-hidden="true">§</span> Ver respaldo legal</button>
+              <p class="legal-note">Base orientativa: art. 58 del Código de Trabajo.</p>
+            </aside>
+          </section>
+
+          <section class="tab-panel" id="panel-renuncia" role="tabpanel" aria-labelledby="tab-renuncia" hidden>
+            <div class="form-side">
+              <div class="panel-title"><span class="icon-box" aria-hidden="true">✓</span>
+                <div>
+                  <p>Renuncia voluntaria</p>
+                  <h3>Datos de la relación laboral</h3>
+                </div>
+              </div>
+              <form id="form-renuncia" class="calc-form" novalidate>
+                <label>Salario mensual base <span class="hint">USD</span><span class="money-input"><span>$</span><input
+                      type="number" id="re-salary" min="0" step="0.01" value="600" required></span></label>
+                <div class="field-grid"><label>Fecha de ingreso <span class="hint">DD/MM/AAAA</span><span
+                      class="date-control"><input class="date-input" type="text" id="re-start" value="15/01/2022"
+                        placeholder="DD/MM/AAAA" inputmode="numeric" maxlength="10" autocomplete="off" data-date
+                        required><span class="date-picker-button" aria-hidden="true"></span><input
+                        class="date-picker-native" type="date" data-date-target="re-start"
+                        aria-label="Abrir calendario para fecha de ingreso"></span></label><label>Fecha efectiva de
+                    renuncia <span class="hint">DD/MM/AAAA</span><span class="date-control"><input class="date-input"
+                        type="text" id="re-end" placeholder="DD/MM/AAAA" inputmode="numeric" maxlength="10"
+                        autocomplete="off" data-date required><span class="date-picker-button"
+                        aria-hidden="true"></span><input class="date-picker-native" type="date"
+                        data-date-target="re-end" aria-label="Abrir calendario para fecha de renuncia"></span></label>
+                </div>
+                <label>Salario mínimo mensual del sector <span class="hint">Valor fijo</span><span
+                    class="money-input"><span>$</span><input type="number" id="re-minimum" value="408.80" readonly
+                      aria-readonly="true"></span></label>
+                <details>
+                  <summary>Ajustes legales</summary>
+                  <div class="details-body"><label>Días de salario por año<input type="number" id="re-days-year" min="0"
+                        step="1" value="15"></label><label>Antigüedad mínima en años<input type="number"
+                        id="re-min-years" min="0" step="1" value="2"></label><label>Tope de salarios mínimos
+                      mensuales<input type="number" id="re-cap-mult" min="0" step="0.1" value="2"></label><label
+                      class="check"><input type="checkbox" id="re-apply-cap" checked><span><b>Aplicar tope
+                          legal</b><small>Usa como máximo el múltiplo indicado del salario
+                          mínimo.</small></span></label></div>
+                </details>
+              </form>
+            </div>
+            <aside class="result-side" aria-live="polite">
+              <p class="result-label">Prestación estimada</p><output class="result-amount" id="re-result">$0.00</output>
+              <p class="result-caption" id="re-caption"></p>
+              <div class="breakdown" id="re-breakdown"></div><button type="button" class="legal-button"
+                data-legal="renuncia"><span aria-hidden="true">§</span> Ver respaldo legal</button>
+              <p class="legal-note">Base orientativa: Ley Reguladora de la Prestación Económica por Renuncia Voluntaria.
+              </p>
+            </aside>
+          </section>
+
+          <section class="tab-panel" id="panel-quincena" role="tabpanel" aria-labelledby="tab-quincena" hidden>
+            <div class="form-side">
+              <div class="panel-title"><span class="icon-box" aria-hidden="true">$</span>
+                <div>
+                  <p>Salario quincenal</p>
+                  <h3>Ingresos y deducciones</h3>
+                </div>
+              </div>
+              <form id="form-quincena" class="calc-form" novalidate>
+                <div class="field-grid"><label>Salario mensual <span class="hint">USD</span><span
+                      class="money-input"><span>$</span><input type="number" id="qu-salary" min="0" step="0.01"
+                        value="700"></span></label><label>Días pagados<input type="number" id="qu-days" min="0" max="31"
+                      step="1" value="15"></label></div>
+                <div class="field-grid"><label>Horas extra<input type="number" id="qu-extra-hours" min="0" step="0.25"
+                      value="0"></label><label>Multiplicador de hora extra<input type="number" id="qu-extra-mult"
+                      min="0" step="0.1" value="2"></label></div>
+                <div class="field-grid"><label>Horas de jornada diaria<input type="number" id="qu-hours-day" min="1"
+                      step="0.5" value="8"></label><label>Comisiones y otros ingresos <span class="hint">USD</span><span
+                      class="money-input"><span>$</span><input type="number" id="qu-other-income" min="0" step="0.01"
+                        value="0"></span></label></div>
+                <details open>
+                  <summary>Deducciones</summary>
+                  <div class="details-body">
+                    <div class="field-grid"><label>ISSS del trabajador <span class="hint">%</span><input type="number"
+                          id="qu-isss-rate" min="0" step="0.01" value="3"></label><label>Tope mensual cotizable ISSS
+                        <span class="hint">USD</span><input type="number" id="qu-isss-cap" min="0" step="0.01"
+                          value="1000"></label></div>
+                    <div class="field-grid"><label>AFP del trabajador <span class="hint">%</span><input type="number"
+                          id="qu-afp-rate" min="0" step="0.01" value="7.25"></label><label>Porción de cotización en esta
+                        quincena <span class="hint">%</span><input type="number" id="qu-contribution-share" min="0"
+                          max="100" step="1" value="100"></label></div>
+                    <div class="field-grid"><label>Retención de ISR <span class="hint">USD</span><span
+                          class="money-input"><span>$</span><input type="number" id="qu-isr" min="0" step="0.01"
+                            value="0"></span></label><label>Otros descuentos autorizados <span
+                          class="hint">USD</span><span class="money-input"><span>$</span><input type="number"
+                            id="qu-other-ded" min="0" step="0.01" value="0"></span></label></div>
+                  </div>
+                </details>
+              </form>
+            </div>
+            <aside class="result-side" aria-live="polite">
+              <p class="result-label">Pago neto estimado</p><output class="result-amount" id="qu-result">$0.00</output>
+              <p class="result-caption" id="qu-caption"></p>
+              <div class="breakdown" id="qu-breakdown"></div><button type="button" class="legal-button"
+                data-legal="quincena"><span aria-hidden="true">§</span> Ver respaldo legal</button>
+              <p class="legal-note">La retención de ISR debe ingresarse según la tabla vigente y la modalidad de pago.
+              </p>
+            </aside>
+          </section>
+        </div>
+        <div class="notice"><b>Importante</b>
+          <p>Esta herramienta ofrece estimaciones orientativas y no sustituye un cálculo oficial del Ministerio de
+            Trabajo, una planilla ni asesoría legal. Confirma los topes y porcentajes vigentes antes de tomar
+            decisiones.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="metodologia" class="method shell">
+      <div class="section-heading">
+        <div>
+          <p class="kicker">Cálculos transparentes</p>
+          <h2>Entiende de dónde sale cada monto</h2>
+        </div>
+        <p>Cada resultado muestra la base utilizada, el tiempo reconocido y las operaciones aplicadas.</p>
+      </div>
+      <div class="method-grid">
+        <article><span>01</span>
+          <h3>Ingresa tus datos</h3>
+          <p>Salario, fechas y variables particulares del caso.</p>
+        </article>
+        <article><span>02</span>
+          <h3>Revisa los ajustes</h3>
+          <p>Modifica topes, tasas y períodos cuando sea necesario.</p>
+        </article>
+        <article><span>03</span>
+          <h3>Lee el desglose</h3>
+          <p>Obtén el total junto con la fórmula aplicada.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="preguntas" class="faq shell">
+      <div>
+        <p class="kicker">Preguntas frecuentes</p>
+        <h2>Antes de usar el resultado</h2>
+      </div>
+      <div class="faq-list">
+        <details>
+          <summary>¿El resultado es oficial?<span>+</span></summary>
+          <p>No. Es una estimación educativa basada en los datos ingresados. Un finiquito puede incluir vacaciones,
+            salarios pendientes, comisiones y otras particularidades.</p>
+        </details>
+        <details>
+          <summary>¿Se guardan mis datos?<span>+</span></summary>
+          <p>No. Los cálculos ocurren localmente en tu navegador y este sitio no envía la información a un servidor.</p>
+        </details>
+        <details>
+          <summary>¿Por qué puedo cambiar los topes y porcentajes?<span>+</span></summary>
+          <p>Porque el salario mínimo, las bases cotizables y otras reglas pueden cambiar. La calculadora muestra
+            valores de referencia, pero permite actualizarlos.</p>
+        </details>
+        <details>
+          <summary>¿Qué no incluye la indemnización?<span>+</span></summary>
+          <p>El monto mostrado corresponde solo a la indemnización estimada. No suma automáticamente salario pendiente,
+            vacación proporcional, aguinaldo proporcional ni otros conceptos del finiquito.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <dialog class="legal-modal" id="legal-modal" aria-labelledby="legal-modal-title">
+    <div class="modal-header">
+      <div>
+        <p class="kicker">Marco normativo</p>
+        <h2 id="legal-modal-title"></h2>
+      </div>
+      <button type="button" class="modal-close" id="legal-modal-close" aria-label="Cerrar respaldo legal">×</button>
+    </div>
+    <p class="modal-intro" id="legal-modal-intro"></p>
+    <div class="legal-list" id="legal-modal-content"></div>
+    <p class="modal-disclaimer">Resumen informativo basado en el documento técnico del proyecto. Consulta el texto
+      completo de la norma para analizar un caso particular.</p>
+  </dialog>
+
+  <footer>
+    <div class="shell footer-inner">
+      <div><a class="brand" href="#inicio"><span class="brand-mark">SV</span><span>Calculadora Laboral</span></a>
+        <p>Información clara para decisiones laborales mejor informadas.</p>
+      </div>
+      <div>
+        <p><b>Marco de referencia</b></p><a href="https://www.mtps.gob.sv/" target="_blank" rel="noopener">Ministerio de
+          Trabajo y Previsión Social ↗</a><a href="https://www.asamblea.gob.sv/" target="_blank" rel="noopener">Asamblea
+          Legislativa ↗</a>
+      </div>
+    </div>
+    <div class="shell footer-bottom"><span>© <span id="year"></span> Calculadora Laboral SV</span><span>Uso informativo
+        · No constituye asesoría legal</span></div>
+  </footer>
+  <script src="calculations.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+
+</html>
