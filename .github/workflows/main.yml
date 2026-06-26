@@ -10,13 +10,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Deploy via SSH
-        uses: appleboy/ssh-action@v0.1.6
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: 65002
-          script: |
-            cd  ${{ secrets.HOSTINGER_PATH }}
-            git pull origin main
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy files to Hostinger
+        uses: easingthemes/ssh-deploy@main
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          REMOTE_HOST: ${{ secrets.HOST }}
+          REMOTE_USER: ${{ secrets.USERNAME }}
+          REMOTE_PORT: "65002"
+          SOURCE: "./"
+          TARGET: ${{ secrets.HOSTINGER_PATH }}
+          ARGS: "-rlgoDzvc -i"
+          EXCLUDE: "/.git/, /.github/, /node_modules/, /.env, /.env.*, /README.md"
