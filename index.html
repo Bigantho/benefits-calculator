@@ -11,6 +11,26 @@
 
   gtag('config', 'G-W1ZLD6Z2P9');
 </script>
+<!-- ADs event tracker -->
+<!-- Google tag (gtag.js) event - delayed navigation helper -->
+<script>
+  // Helper function to delay opening a URL until a gtag event is sent.
+  // Call it in response to an action that should navigate to a URL.
+  function gtagSendEvent(url) {
+    var callback = function () {
+      if (typeof url === 'string') {
+        window.location = url;
+      }
+    };
+    gtag('event', 'conversion_event_default', {
+      'event_callback': callback,
+      'event_timeout': 2000,
+      // <event_parameters>
+    });
+    return false;
+  }
+</script>
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Calculadora de prestaciones laborales en El Salvador</title>
@@ -156,7 +176,7 @@
             <aside class="result-side" aria-live="polite">
               <p class="result-label">Aguinaldo estimado</p><output class="result-amount" id="ag-result">$0.00</output>
               <p class="result-caption" id="ag-caption"></p>
-              <div class="breakdown" id="ag-breakdown"></div><button type="button" class="legal-button"
+              <div class="breakdown" id="ag-breakdown"></div><button onclick="gtagSendEvent();" type="button" class="legal-button"
                 data-legal="aguinaldo"><span aria-hidden="true"></span> Ver respaldo legal</button>
               <p class="legal-note">Base orientativa: arts. 196–202 del Código de Trabajo.</p>
             </aside>
