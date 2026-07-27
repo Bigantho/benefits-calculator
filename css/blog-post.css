@@ -647,6 +647,14 @@
   max-width: 490px;
 }
 
+.examples-title{
+   font-size: 22px;
+}
+
+.examples-title span{
+  font-weight: 600;
+}
+
 @media (max-width: 900px) {
   .article-header h1 {
     font-size: 56px;
