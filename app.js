@@ -55,12 +55,16 @@ const legalReferences = {
 };
 
 function value(id) {
-  const parsed = Number.parseFloat($(id).value);
+  const input = $(id);
+  if (!input) return 0;
+  const parsed = Number.parseFloat(input.value);
   return Number.isFinite(parsed) ? parsed : 0;
 }
 
 function dateValue(id) {
-  const raw = $(id).value;
+  const input = $(id);
+  if (!input) return null;
+  const raw = input.value;
   if (!raw) return null;
   const match = /^(\d{2})\/(\d{2})\/(\d{4})$/.exec(raw);
   if (!match) return null;
@@ -246,8 +250,11 @@ function openLegalModal(type) {
 }
 
 const today = new Date();
-["ag-end", "de-end", "re-end"].forEach((id) => { $(id).value = dateInputValue(today); });
-$("year").textContent = today.getFullYear();
+["ag-end", "de-end", "re-end"].forEach((id) => {
+  const input = $(id);
+  if (input && !input.value) input.value = dateInputValue(today);
+});
+if ($("year")) $("year").textContent = today.getFullYear();
 
 document.querySelectorAll(".tab").forEach((tab, index, tabs) => {
   tab.addEventListener("click", () => setActiveTab(tab.dataset.tab));
@@ -281,22 +288,29 @@ document.querySelectorAll(".date-picker-native").forEach((picker) => {
   });
 });
 
-$("legal-modal-close").addEventListener("click", () => $("legal-modal").close());
-$("legal-modal").addEventListener("click", (event) => {
-  if (event.target === $("legal-modal")) $("legal-modal").close();
-});
+if ($("legal-modal-close") && $("legal-modal")) {
+  $("legal-modal-close").addEventListener("click", () => $("legal-modal").close());
+  $("legal-modal").addEventListener("click", (event) => {
+    if (event.target === $("legal-modal")) $("legal-modal").close();
+  });
+}
+
+const calculators = [
+  ["form-aguinaldo", calculateAguinaldo],
+  ["form-despido", calculateDismissal],
+  ["form-renuncia", calculateResignation],
+  ["form-quincena", calculateFortnight]
+].filter(([formId]) => $(formId));
 
 document.querySelectorAll(".calc-form input").forEach((input) => input.addEventListener("input", () => {
-  calculateAguinaldo();
-  calculateDismissal();
-  calculateResignation();
-  calculateFortnight();
+  calculators.forEach(([, calculate]) => calculate());
 }));
 
-$("ag-variable").addEventListener("change", () => $("ag-variable-wrap").classList.toggle("visible", $("ag-variable").checked));
-$("ag-prorate-auto").addEventListener("change", () => $("ag-days-wrap").classList.toggle("visible", !$("ag-prorate-auto").checked));
+if ($("ag-variable")) {
+  $("ag-variable").addEventListener("change", () => $("ag-variable-wrap").classList.toggle("visible", $("ag-variable").checked));
+}
+if ($("ag-prorate-auto")) {
+  $("ag-prorate-auto").addEventListener("change", () => $("ag-days-wrap").classList.toggle("visible", !$("ag-prorate-auto").checked));
+}
 
-calculateAguinaldo();
-calculateDismissal();
-calculateResignation();
-calculateFortnight();
+calculators.forEach(([, calculate]) => calculate());
