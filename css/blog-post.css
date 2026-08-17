@@ -267,7 +267,9 @@
   margin: 3px 0 0;
   color: var(--muted);
 }
-
+.content-notice-big p {
+  font-size: large;
+}
 .section-number {
   margin-bottom: 8px !important;
   color: var(--accent);
