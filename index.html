@@ -86,9 +86,8 @@
       </a>
       <nav aria-label="Navegación principal">
         <a href="#calculadora">Calculadoras</a>
-        <a href="#metodologia">Metodología</a>
         <a href="#preguntas">Preguntas</a>
-        <a href="./blog/como-calcular-aguinaldo-el-salvador.html" aria-current="page">Blog</a>
+        <a href="./blog/">Blog</a>
 
       </nav>
     </div>
@@ -104,17 +103,14 @@
         <a class="button primary" href="#calculadora">Empezar a calcular <span aria-hidden="true">→</span></a>
         <a class="button secondary" href="#metodologia">Cómo funciona la plataforma</a>
       </div>
-      <div class="trust-row" aria-label="Características">
-        <span>✓ Sin registro</span><span>✓ Datos privados</span><span>✓ Resultado instantáneo</span>
-      </div>
     </section>
 
     <section id="calculadora" class="calculator-section">
       <div class="shell">
         <div class="section-heading">
           <div>
-            <p class="kicker">Selecciona un cálculo</p>
-            <h2>¿Qué deseas estimar?</h2>
+            <p class="kicker">Calculadoras de tus prestaciones</p>
+            <h2>¿Qué deseas calcular?</h2>
           </div>
         </div>
 
@@ -348,24 +344,113 @@
     <section id="metodologia" class="method shell">
       <div class="section-heading">
         <div>
-          <p class="kicker">Cálculos transparentes</p>
-          <h2>Entiende de dónde sale cada monto</h2>
+          <p class="kicker">Ejemplo práctico</p>
+          <h2>Así llegamos al resultado</h2>
+          <p class="method-case-description">Analizamos el caso de una persona con salario mensual de $600 y 2 años
+            y 7 meses de antigüedad. Por estar en el primer tramo legal, le corresponden 15 días de aguinaldo.</p>
         </div>
-        <p>Cada resultado muestra la base utilizada, el tiempo reconocido y las operaciones aplicadas.</p>
       </div>
-      <div class="method-grid">
-        <article><span>01</span>
-          <h3>Ingresa tus datos</h3>
-          <p>Salario, fechas y variables particulares del caso.</p>
+      <div class="method-example">
+        <article class="calculation-sheet" aria-label="Ejemplo del cálculo de aguinaldo">
+          <div class="sheet-heading">
+            <span>Ejemplo de aguinaldo</span>
+            <!-- <span>Art. 198</span> -->
+          </div>
+          <div class="sheet-row">
+            <span>Salario mensual</span>
+            <strong>$600.00</strong>
+          </div>
+          <div class="sheet-row">
+            <span>Salario diario <small>$600 ÷ 30</small></span>
+            <strong>$20.00</strong>
+          </div>
+          <div class="sheet-row">
+            <span>Días por antigüedad <small>2 años y 7 meses</small></span>
+            <strong>15 días</strong>
+          </div>
+          <div class="sheet-total">
+            <span>Aguinaldo estimado</span>
+            <strong>$300.00</strong>
+          </div>
+          <p class="sheet-formula">$20.00 × 15 días = $300.00</p>
         </article>
-        <article><span>02</span>
-          <h3>Revisa los ajustes</h3>
-          <p>Modifica topes, tasas y períodos cuando sea necesario.</p>
-        </article>
-        <article><span>03</span>
-          <h3>Lee el desglose</h3>
-          <p>Obtén el total junto con la fórmula aplicada.</p>
-        </article>
+
+        <div class="method-annotations">
+          <article>
+            <!-- <span class="annotation-label">Sale de tu salario</span> -->
+            <h3>Primero obtenemos el salario diario</h3>
+            <p>Dividimos el salario mensual entre 30. La base queda visible para que puedas compararla con tu pago.</p>
+          </article>
+          <article>
+            <!-- <span class="annotation-label">Lo define tu antigüedad</span> -->
+            <h3>Después aplicamos los días legales</h3>
+            <p>En este caso corresponden 15 días. La escala cambia a 19 o 21 cuando aumenta el tiempo trabajado.</p>
+          </article>
+          <article class="method-closing-note">
+            <!-- <span class="annotation-label">Sin operación oculta</span> -->
+            <h3>El total siempre incluye su fórmula</h3>
+            <p>Si cambias una fecha, un tope o un porcentaje, puedes ver inmediatamente qué parte del cálculo cambió.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-blog" aria-labelledby="home-blog-title">
+      <div class="shell">
+        <div class="home-blog-heading">
+          <div>
+            <p class="kicker">Guías laborales</p>
+            <h2 id="home-blog-title">Respuestas para revisar tu pago a detalle</h2>
+          </div>
+          <a href="./blog/">Ver todos los artículos <span aria-hidden="true">→</span></a>
+        </div>
+
+        <div class="home-blog-layout">
+          <article class="home-blog-featured">
+            <a href="./blog/cuando-pagan-aguinaldo-el-salvador/">
+              <div class="home-blog-image">
+                <img src="./assets/blog-cuando-pagan-aguinaldo-el-salvador.png"
+                  alt="Calendario con las fechas de pago del aguinaldo en El Salvador" width="1692" height="929"
+                  loading="lazy">
+              </div>
+              <div class="home-blog-copy">
+                <p>7 min de lectura</p>
+                <h3>¿Cuándo deben pagarte el aguinaldo?</h3>
+                <span>Conoce el período legal y qué hacer si llega la fecha límite sin recibir el pago.</span>
+                <b>Leer la guía <span aria-hidden="true">↗</span></b>
+              </div>
+            </a>
+          </article>
+
+          <div class="home-blog-secondary">
+            <article>
+              <a href="./blog/tabla-aguinaldo-dias-por-antiguedad/">
+                <div class="home-blog-image">
+                  <img src="./assets/blog-tabla-aguinaldo-dias-por-antiguedad.png"
+                    alt="Tabla de días de aguinaldo según años trabajados" width="1692" height="929" loading="lazy">
+                </div>
+                <div class="home-blog-copy">
+                  <p>7 min de lectura</p>
+                  <h3>¿Te corresponden 15, 19 o 21 días?</h3>
+                  <b>Consultar la tabla <span aria-hidden="true">→</span></b>
+                </div>
+              </a>
+            </article>
+            <article>
+              <a href="./blog/aguinaldo-renta-isss-afp-descuentos/">
+                <div class="home-blog-image">
+                  <img src="./assets/blog-aguinaldo-renta-isss-afp-descuentos.png"
+                    alt="Explicación de los descuentos aplicables al aguinaldo" width="1692" height="929" loading="lazy">
+                </div>
+                <div class="home-blog-copy">
+                  <p>8 min de lectura</p>
+                  <h3>¿El aguinaldo paga renta, ISSS o AFP?</h3>
+                  <b>Revisar los descuentos <span aria-hidden="true">→</span></b>
+                </div>
+              </a>
+            </article>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -379,10 +464,6 @@
           <summary>¿El resultado es oficial?<span>+</span></summary>
           <p>No. Es una estimación educativa basada en los datos ingresados. Un finiquito puede incluir vacaciones,
             salarios pendientes, comisiones y otras particularidades.</p>
-        </details>
-        <details>
-          <summary>¿Se guardan mis datos?<span>+</span></summary>
-          <p>No. Los cálculos ocurren localmente en tu navegador y este sitio no envía la información a un servidor.</p>
         </details>
         <details>
           <summary>¿Por qué puedo cambiar los topes y porcentajes?<span>+</span></summary>
