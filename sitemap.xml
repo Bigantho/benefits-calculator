@@ -37,7 +37,7 @@
 
   <url>
     <loc>https://calculodeaguinaldo.com/blog/</loc>
-    <lastmod>2026-08-27</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -76,6 +76,12 @@
   <url>
     <loc>https://calculodeaguinaldo.com/blog/renuncia-despido-aguinaldo-proporcional/</loc>
     <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://calculodeaguinaldo.com/blog/aguinaldo-sector-publico/</loc>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
